@@ -1,0 +1,23 @@
+{
+  "name": "projet1",
+  "version": "1.0.0",
+  "description": "first exo ",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon --experimental-specifier-resolution=node server.js ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "victoria",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "mongoose": "^6.2.4",
+    "nodemon": "^2.0.15",
+    "express": "^4.17.3",
+    "express-validator": "^6.14.0",
+    "dotenv": "16.0.0"
+  }
+}
