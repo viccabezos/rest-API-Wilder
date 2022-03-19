@@ -1,15 +1,19 @@
 import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
-
-const WilderSchema = new Schema(
+interface Iwilder {
+  name: string;
+  city: string;
+  description: string;
+  skills: string[];
+}
+const WilderSchema = new Schema<Iwilder>(
   {
     name: {
-      type: String,
-      unique: true,
       required: [true, "le nom est requis!"],
     },
-    city: { type: String, required: [true, "la ville est requise"] },
+    city: { required: [true, "la ville est requise"] },
+    description: {},
     skills: [
       {
         title: String,

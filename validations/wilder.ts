@@ -1,4 +1,5 @@
-import { body, validationResult } from "express-validator";
+import { body, ValidationError, validationResult } from "express-validator";
+import { Request, Response } from "express";
 
 export const create = [
   body("name")
@@ -7,11 +8,9 @@ export const create = [
   body("city")
     .isLength({ min: 2 })
     .withMessage("La ville doit avoir au moins 2 caractères"),
-  (req, res, next) => {
-    const errorsValidation = validationResult(req);
-    console.log("ERROR", errorsValidation);
+  (req: Request, res: Response, next) => {
+    const errorsValidation: any = validationResult(req);
     if (!errorsValidation.isEmpty()) {
-      // je dois formater les erreurs pour coller au modele : {success: false, result: {name: "Le nom doit ..."}}
       let errors = {};
 
       errorsValidation.errors.map((err) => {

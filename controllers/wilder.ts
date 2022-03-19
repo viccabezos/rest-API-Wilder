@@ -1,16 +1,17 @@
-import res from "express/lib/response";
 import WilderModel from "../models/Wilder";
 import { listErrors } from "../utilities/tools";
 
 const methods = {
-  create: (req, res) => {
-    const { name, city, skills } = req.body;
+  create: async (req, res) => {
+    console.log("REQUEST BODYYYY", req.body);
+    const { name, city, skills, description } = req.body;
 
     WilderModel.init().then(() => {
       const wilder = new WilderModel({
-        name,
-        city,
-        skills,
+        name: String,
+        city: String,
+        skills: [],
+        description: String,
       });
       wilder
         .save()
